@@ -5,41 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<script>
-    var sys_1OR2_module = ["Cooling Water", "Engine", "Cylinders","Exhaust Gas", "Fuel Oil",
-                            "Gearbox Oil", "Generator", "Lub.Oil"];
-    var sys_3OR4_module = ["Cabinet C.Water1", "Cabinet C.Water2", "Convertor1","Convertor2",
-                            "Main Shaft", "Motor1", "Motor2", "VSD M1 Status","VSD M2 Status"];
-    sys_module = []
 
-    var radios = document.querySelectorAll('input[type="radio"][name="systemID"]');
-
-    radios.forEach(function(radio){
-        radio.addEventListener('change',function(event){
-            var modules = document.querySelectorAll('li');
-            console.log(modules);
-            if(event.target.id == 'sys1' || event.target.id == 'sys2'){
-<!--                modules.forEach(function(module,index){-->
-<!--                   module.text(sys_1OR2_module[index]);-->
-<!--                   console.log(module.value);-->
-<!--                });-->
-                alert(this.value);
-            }
-
-            else{
-<!--                modules.forEach(function(module,index){-->
-<!--                   module.text(sys_3OR4_module[index]);-->
-<!--                   console.log(module.value);-->
-<!--                });-->
-                alert(this.value);
-            }
-        });
-    });
-<!--    radios.forEach(radio => radio.addEventListener(', () => alert(radio.value)));-->
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 <div class="container">
     <h1>Maria DB 연동 테스트</h1>
@@ -49,14 +21,14 @@
         <div class="col-md-5">
             <h2>System Name</h2>
             <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-                <input type="radio" class="btn-check" name="systemID" id="sys1" autocomplete="off">
+                <input type="radio" class="btn-check" name="systemID" id="sys1" autocomplete="off" checked>
                 <label class="btn btn-outline-dark" for="sys1">Main Engine #1</label>
                 <input type="radio" class="btn-check" name="systemID" id="sys2" autocomplete="off">
                 <label class="btn btn-outline-dark" for="sys2">Main Engine #2</label>
 
                 <input type="radio" class="btn-check" name="systemID" id="sys3" autocomplete="off">
                 <label class="btn btn-outline-dark" for="sys3">Main Propulsion #1</label>
-                <input type="radio" class="btn-check" name="systemID" id="sys4" autocomplete="off" checked>
+                <input type="radio" class="btn-check" name="systemID" id="sys4" autocomplete="off">
                 <label class="btn btn-outline-dark" for="sys4">Main Propulsion #2</label>
             </div>
         </div>
@@ -64,7 +36,7 @@
             <h2>Module Name</h2>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked>
                     Cooling Water
                 </li>
                 <li class="list-group-item" >
@@ -103,7 +75,11 @@
         </div>
 
     </div>
-
+    <div class="text-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
     <div class="row" style="weight=100px; height:200px; overflow:auto">
         <table class="table table-striped">
             <thead>
@@ -131,5 +107,6 @@
 
 
 </div> <!-- /container -->
+<script src="loadData.js"></script>
 </body>
 </html>
