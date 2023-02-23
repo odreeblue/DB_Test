@@ -36,30 +36,34 @@
             <span class="sr-only"></span>
         </div>
     </div>
-    <div class="row" style="weight=100px; height:200px; overflow:auto" id = "tableArea">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>TITLE</th>
-                <th>WRITER_ID</th>
-                <th>CONTENT</th>
-                <th>REGDATE</th>
-                <th>HIT</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="dat : ${data}">
-                <td th:text="${dat.id}"></td>
-                <td th:text="${dat.title}"></td>
-                <td th:text="${dat.writer_id}"></td>
-                <td th:text="${dat.content}"></td>
-                <td th:text="${dat.regdate}"></td>
-                <td th:text="${dat.hit}"></td>
-            </tr>
-            </tbody>
-        </table>
+    <div id="Area">
+        <div class="row" style="weight=100px; height:200px; overflow:auto" id = "tableArea">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>WRITER_ID</th>
+                    <th>CONTENT</th>
+                    <th>REGDATE</th>
+                    <th>HIT</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="dat : ${data}">
+                    <td th:text="${dat.id}"></td>
+                    <td th:text="${dat.title}"></td>
+                    <td th:text="${dat.writer_id}"></td>
+                    <td th:text="${dat.content}"></td>
+                    <td th:text="${dat.regdate}"></td>
+                    <td th:text="${dat.hit}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
+
 
 
 </div> <!-- /container -->

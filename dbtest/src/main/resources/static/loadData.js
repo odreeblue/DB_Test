@@ -38,24 +38,22 @@ modules.forEach(function(module){
                 for(let i =0; i< res.md_list.length;i++){
                     console.log(res.md_list[i]);
                 }
+                
                 // temp //
-                let tableArea = document.getElementById('tableArea');
+                let Area = document.getElementById('Area');
                 
-                let new_table = document.createElement('table');
-                new_table.className = "table table-striped";
-                
-                let new_tr = document.createElement('tr');
+                // Area 내 tableArea 태그를 가진 모든 엘리먼트 삭제
+                let removeTable = document.createElement('div');
+                removeTable.classList.add('row');
 
-                let new_th = document.createElement('th');
-                new_th.innerText="ID";
-
-
-
-                for(let i=0; i<res.md_list.length;i++){
-                    tableArea.appendChild(new_table);
+                while(Area.hasChildNodes()){
+                    Area.removeChild(Area.firstChild);
                 }
                 
-                
+
+                let tableArea = createTableArea();
+
+                Area.appendChild(tableArea);
 
             },
             error : function(){
@@ -64,6 +62,39 @@ modules.forEach(function(module){
         });
     });
 });
+function createTableArea(){
+    let tableArea = document.createElement('div');
+    tableArea.className = "row";
+    tableArea.style="weight=100px; height:200px; overflow:auto";
+    tableArea.id = "tableArea";
 
+    tableArea.appendChild(createTable());
+    return tableArea;
+}
 
+function createTable(){
+    //테이블 생성
+    let table = document.createElement('table');
+    table.className = "table table-striped";
+    table.appendChild(createHeader());
+
+    return table;
+}
+
+function createHeader(){
+    // 테이블 헤드 태그 생성
+    let tableHead = document.createElement('theader');
+    // 테이블 행 태그 생성
+    let tableRow = document.createElement('tr');
+    // 테이블 헤더 태그 생성 -> 행 태그에 삽입
+    let header_list = ["ID","TITLE","WRITER_ID","CONTENT","REGDATE","HIT"];
+    header_list.forEach((header,index)=>{
+        var tableHeader = document.createElement('th');
+        tableHeader.innerText=header;
+        tableRow.appendChild(tableHeader);
+    })
+
+    // 테이블 헤드 태그에 행 태그 삽입하여 반환
+    return tableHead.appendChild(tableRow);
+}
 
