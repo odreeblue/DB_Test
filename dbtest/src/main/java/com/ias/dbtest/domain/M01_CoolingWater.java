@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
+//@Setter //Entity에서는 지양한다
 @Table(name="COOLING_WATER")
 public class M01_CoolingWater {
     @Id
@@ -43,4 +44,36 @@ public class M01_CoolingWater {
     private String NO4DBWBTKSTBDLEVEL;
     private String NO5DBWBTKPORTLEVEL;
     private String NO5DBWBTKSTBDLEVEL;
+//    private Long id;
+//    private String utc;
+//    private int systemid;
+//    private String coolingwatertemp ;
+//    private String coolingwatertanklevel ;
+//    private String htcfwinlettemp ;
+//    private String ltcfwinlettemp ;
+//    private String htcfwoutlettemp ;
+//    private String ltcfwoutlettemp ;
+//    private String htcfwinletpress ;
+//    private String ltcfwinletpress ;
+//    private String jacketcfwinpress ;
+//    private String jacketcfwintemp ;
+//    private String jcfwcommonouttemp ;
+//    private String no1jcfwouttemp ;
+//    private String no2jcfwouttemp ;
+//    private String no3jcfwouttemp ;
+//    private String no4jcfwouttemp ;
+//    private String no5jcfwouttemp ;
+//    private String no6jcfwouttemp ;
+//    private String centralcfwintemp ;
+//    private String no1accwinpress ;
+//    private String no1accwintemp ;
+//    private String no1accwouttemp ;
+//    private String cswppouttemp ;
+//    private String cswppdischpress ;
+//    private String no3dbwbtkportlevel ;
+//    private String no3dbwbtkstbdlevel ;
+//    private String no4dbwbtkportlevel ;
+//    private String no4dbwbtkstbdlevel ;
+//    private String no5dbwbtkportlevel ;
+//    private String no5dbwbtkstbdlevel ;
 }

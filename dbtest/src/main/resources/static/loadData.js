@@ -15,6 +15,7 @@ var module_list = ["Cooling Water", "Engine", "Cylinders","Exhaust Gas", "Fuel O
     "MP Status","Generator Bus","MP Power","Common","Gen Alarm",
     "Blackout","Emergency Stop","Bus Alarm"];
 
+var dt;
 
 var modules = document.querySelectorAll('input[type="checkbox"]');
 modules.forEach(function(module){
@@ -30,30 +31,34 @@ modules.forEach(function(module){
         console.log(params);
         $.ajax({
             type:"post",
-            url:"/data",
+            url:"/data2",
             contentType :"application/json",
             data: JSON.stringify(params),
             success : function(res){
+                dt = res;
                 console.log("성공");
-                for(let i =0; i< res.md_list.length;i++){
-                    console.log(res.md_list[i]);
-                }
+                console.log("반환된 객체의 길이: "+res.length);
+                // for(let i =0; i< res.md_list.length;i++){
+                //     console.log(res.md_list[i]);
+                // }
                 
                 // temp //
                 let Area = document.getElementById('Area');
-                
+                console.log("Area의 길이는 : "+Area.children.length);
+                var count = Area.children.length;
                 // Area 내 tableArea 태그를 가진 모든 엘리먼트 삭제
-                let removeTable = document.createElement('div');
-                removeTable.classList.add('row');
-
-                while(Area.hasChildNodes()){
-                    Area.removeChild(Area.firstChild);
+                for(let i=0; i<count;i++){
+                    console.log(i+" 번째 자손 엘리먼트 삭제");
+                    var target = Area.children[0];
+                    Area.removeChild(target);
                 }
                 
-
-                let tableArea = createTableArea();
-
-                Area.appendChild(tableArea);
+                //for(let i=0;i<res.md_list.length;i++){
+                for(let i=0;i<1;i++){
+                    let tableArea = createTableArea(res);
+                    Area.appendChild(tableArea);
+                }
+                
 
             },
             error : function(){
@@ -62,32 +67,40 @@ modules.forEach(function(module){
         });
     });
 });
-function createTableArea(){
+function createTableArea(data){
     let tableArea = document.createElement('div');
     tableArea.className = "row";
     tableArea.style="weight=100px; height:200px; overflow:auto";
     tableArea.id = "tableArea";
-
-    tableArea.appendChild(createTable());
+    var table = createTable(data);
+    tableArea.appendChild(table);
     return tableArea;
 }
 
-function createTable(){
+function createTable(data){
     //테이블 생성
     let table = document.createElement('table');
     table.className = "table table-striped";
-    table.appendChild(createHeader());
+    table.appendChild(createHeader(data));
 
     return table;
 }
 
-function createHeader(){
+function createHeader(data){
     // 테이블 헤드 태그 생성
-    let tableHead = document.createElement('theader');
+    let tableHead = document.createElement('thead');
     // 테이블 행 태그 생성
     let tableRow = document.createElement('tr');
     // 테이블 헤더 태그 생성 -> 행 태그에 삽입
-    let header_list = ["ID","TITLE","WRITER_ID","CONTENT","REGDATE","HIT"];
+    //let header_list = ["ID","TITLE","WRITER_ID","CONTENT","REGDATE","HIT"];
+    let header_list = [];
+    header_Array = Object.keys(data[0]);
+    // console.log("data[0] : "+data[0]);
+    for(let i=0; i<header_Array.length;i++){
+        header_list.push(header_Array[i]);
+    }
+
+
     header_list.forEach((header,index)=>{
         var tableHeader = document.createElement('th');
         tableHeader.innerText=header;

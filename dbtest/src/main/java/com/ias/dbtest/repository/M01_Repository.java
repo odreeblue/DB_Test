@@ -11,6 +11,6 @@ import java.util.List;
 public class M01_Repository {
     private final EntityManager em;
     public List<M01_CoolingWater> findAll(){
-        return em.createQuery("select m01 from M01_CoolingWater m01", M01_CoolingWater.class).getResultList();
+        return em.createQuery("select m from M01_CoolingWater m", M01_CoolingWater.class).getResultList();
     }
 }

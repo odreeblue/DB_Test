@@ -1,13 +1,13 @@
 package com.ias.dbtest.controller;
 
+import com.ias.dbtest.domain.M01_CoolingWater;
 import com.ias.dbtest.dto.AjaxDTO;
 
-import com.ias.dbtest.service.DataService;
+import com.ias.dbtest.service.ModuleService;
 import lombok.RequiredArgsConstructor;
 //import org.json.JSONObject;
 
 
-import org.apache.tomcat.util.json.JSONParser;
 import org.json.JSONObject;
 
 
@@ -16,20 +16,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class DataController {
-    private final DataService dataService;
+     private final ModuleService module_service;
 
-//    @PostMapping("/data")
-//    public @ResponseBody AjaxDTO data(@RequestBody AjaxDTO ajaxDTO){
-//        System.out.println("ajaxDTO = "+ajaxDTO);
-//        return ajaxDTO;
-//    }
+   @PostMapping("/data2")
+   public @ResponseBody List<M01_CoolingWater> data2(@RequestBody String jsonStr){
+        JSONObject jsonObject = new JSONObject(jsonStr);
+        AjaxDTO ajaxDTO = new AjaxDTO(jsonObject);
+
+        // m01데이터만 가져와보기
+        List<M01_CoolingWater> M01s = module_service.find_m01();
+        System.out.println("반환된 객체의 사이즈: "+M01s.size());
+        return M01s;
+    }
 //    @GetMapping("/data")
     //@RequestMapping(value="/data", method=RequestMethod.POST)
     @PostMapping("/data")
