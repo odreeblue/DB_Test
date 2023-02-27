@@ -1,0 +1,7 @@
+private String BUSHIGHFREQUENCY ;
+private String LOWFREQUENCY ;
+private String BUSHIGHVOLTAGE ;
+private String BUSLOWVOLTAGE ;
+private String HIGHLOAD ;
+private String LIGHTLOAD ;
+private String PRETRIP ;

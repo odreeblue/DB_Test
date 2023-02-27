@@ -58,8 +58,6 @@ modules.forEach(function(module){
                     let tableArea = createTableArea(res);
                     Area.appendChild(tableArea);
                 }
-                
-
             },
             error : function(){
                 console.log("실패");
@@ -80,8 +78,10 @@ function createTableArea(data){
 function createTable(data){
     //테이블 생성
     let table = document.createElement('table');
-    table.className = "table table-striped";
+    table.className = "table table-bordered";
+    table.setAttribute('cellpadding','20px');
     table.appendChild(createHeader(data));
+    table.appendChild(createBody(data));
 
     return table;
 }
@@ -103,11 +103,30 @@ function createHeader(data){
 
     header_list.forEach((header,index)=>{
         var tableHeader = document.createElement('th');
-        tableHeader.innerText=header;
+        tableHeader.setAttribute('scope','col');
+        tableHeader.innerText=header.toUpperCase();
         tableRow.appendChild(tableHeader);
     })
-
     // 테이블 헤드 태그에 행 태그 삽입하여 반환
     return tableHead.appendChild(tableRow);
+}
+
+function createBody(data){
+    // 테이블 바디 태그 생성
+    let tableBody = document.createElement('tbody');
+    // 데이터 키값 배열 생성
+    let header_Array = Object.keys(data[0]);
+    var tableRow;
+    // 테이블 행 태그 생성
+    for(let i=0; i<data.length;i++){
+        tableRow = document.createElement('tr');
+        header_Array.forEach((header)=>{
+            let tableData = document.createElement('td');
+            tableData.innerText = data[i][header];
+            tableRow.appendChild(tableData);
+        })
+        tableBody.appendChild(tableRow);
+    }
+    return tableBody;
 }
 

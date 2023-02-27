@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 //@Setter //Entity에서는 지양한다
 @Table(name="COOLING_WATER")
-public class M01_CoolingWater {
+public class M01_CoolingWater{
     @Id
     @GeneratedValue
     @Column
