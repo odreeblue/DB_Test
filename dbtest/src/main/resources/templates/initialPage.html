@@ -18,15 +18,32 @@
     <div style="width:100%;height:200px;overflow:auto">
         <h2># Module List</h2>
         <table class="table table-sm" width="100%" border="0" cellspacing="0" cellpadding="0">
+            
+            <tr>
+                <th>Module Number</th>
+                <th>Module Name</th>
+                <th colspan="2" align="center">System Name</th>
+            </tr>
             <tr th:each="module,i:${module_list}">
                 <td>
-                    <input type="checkbox" class="custom-control-input" th:id="${module}">
+                    <input type="checkbox" class="custom-control-input module" th:id="${module}" th:name="${i.count}">
                     <label class="custom-control-label" th:for="${module}" th:id="${i.count}" th:text="${i.count}">
 <!--                        <p th:text="${i.count}"></p>-->
                     </label>
-
                 </td>
                 <td th:text="${module}"></td>
+                <td>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        1
+                    </label>
+                </td>
+                <td>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        2
+                    </label>
+                </td>
             </tr>
         </table>
     </div>

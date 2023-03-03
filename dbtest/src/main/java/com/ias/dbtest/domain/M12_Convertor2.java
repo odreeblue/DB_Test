@@ -14,8 +14,8 @@ public class M12_Convertor2 {
     private Long ID;
     private String UTC;
     private int SYSTEMID;
-    private String CONVERTER1TRANSISTORTEMP ;
-    private String CONVERTER1GATEDRIVERHIGHESTTEMP ;
+    private String CONVERTER2TRANSISTORTEMP ;
+    private String CONVERTER2GATEDRIVERHIGHESTTEMP ;
 
 
 

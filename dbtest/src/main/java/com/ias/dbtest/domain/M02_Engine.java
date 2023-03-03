@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 //@Setter //Entity에서는 지양한다
 @Table(name="ENGINE")
-public class M02_Engine {
+public class M02_Engine{
     @Id
     @GeneratedValue
     @Column
