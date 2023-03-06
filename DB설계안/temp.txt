@@ -1,7 +1,101 @@
-private String BUSHIGHFREQUENCY ;
-private String LOWFREQUENCY ;
-private String BUSHIGHVOLTAGE ;
-private String BUSLOWVOLTAGE ;
-private String HIGHLOAD ;
-private String LIGHTLOAD ;
-private String PRETRIP ;
+"1":"m01",
+"2":"m02",
+"3":"m03",
+"4":"m04",
+"5":"m05",
+"6":"m06",
+"7":"m07",
+"8":"m08",
+"9":"m09",
+"10":"m10",
+"11":"m11",
+"12":"m12",
+"13":"m13",
+"14":"m14",
+"15":"m15",
+"16":"m16",
+"17":"m17",
+"18":"m18",
+"19":"m19",
+"20":"m20",
+"21":"m21",
+"22":"m22",
+"23":"m23",
+"24":"m24",
+"25":"m25",
+"26":"m26",
+"27":"m27",
+"28":"m28",
+"29":"m29",
+"30":"m30",
+"31":"m31",
+"32":"m32",
+"33":"m33"
+
+"Cooling Water"
+"Engine"
+"Cylinders"
+"Exhaust Gas"
+"Fuel Oil"
+"Gearbox Oil"
+"Generator"
+"Lub.Oil"
+"Cabinet C.Water1"
+"Cabinet C.Water2"
+"Convertor1"
+"Convertor2"
+"Main Shaft"
+"Motor1"
+"Motor2"
+"VSD M1 Status"
+"VSD M2 Status"
+"Cooling"
+"Eng. and Gen."
+"Exhaust"
+"Lub. and Gear"
+"VSD M1"
+"VSD M2"
+"Gen. Status"
+"BUS Status"
+"MP Status"
+"Generator Bus"
+"MP Power"
+"Common"
+"Gen Alarm"
+"Blackout"
+"Emergency Stop"
+"Bus Alarm"
+var module_list = {
+"1":["m01","Cooling Water","sys1","sys2"],
+"2":["m02","Engine","sys1","sys2"],
+"3":["m03","Cylinders","sys1","sys2"],
+"4":["m04","Exhaust Gas","sys1","sys2"],
+"5":["m05","Fuel Oil","sys1","sys2"],
+"6":["m06","Gearbox Oil","sys1","sys2"],
+"7":["m07","Generator","sys1","sys2"],
+"8":["m08","Lub.Oil","sys1","sys2"],
+"9":["m09","Cabinet C.Water1","sys1","sys2"],
+"10":["m10","Cabinet C.Water2","sys1","sys2"],
+"11":["m11","Convertor1","sys1","sys2"],
+"12":["m12","Convertor2","sys1","sys2"],
+"13":["m13","Main Shaft","sys1","sys2"],
+"14":["m14","Motor1","sys1","sys2"],
+"15":["m15","Motor2","sys1","sys2"],
+"16":["m16","VSD M1 Status","sys1","sys2"],
+"17":["m17","VSD M2 Status","sys1","sys2"],
+"18":["m18","Cooling","sys1","sys2"],
+"19":["m19","Eng. and Gen.","sys1","sys2"],
+"20":["m20","Exhaust","sys1","sys2"],
+"21":["m21","Lub. and Gear","sys1","sys2"],
+"22":["m22","VSD M1","sys1","sys2"],
+"23":["m23","VSD M2","sys1","sys2"],
+"24":["m24","Gen. Status","sys1","sys2"],
+"25":["m25","BUS Status","sys1","sys2"],
+"26":["m26","MP Status","sys1","sys2"],
+"27":["m27","Generator Bus","sys1","sys2"],
+"28":["m28","MP Power","sys1","sys2"],
+"29":["m29","Common","sys1","sys2"],
+"30":["m30","Gen Alarm","sys1","sys2"],
+"31":["m31","Blackout","sys1","sys2"],
+"32":["m32","Emergency Stop","sys1","sys2"],
+"33":["m33","Bus Alarm"]}
